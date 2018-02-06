@@ -17,7 +17,7 @@ class SingleChirp extends Component {
             headers: new Headers({ 'Content-Type': 'application/json' })
         })
             .then(response => response.json())
-            .then(object => this.setState({ objects: object }))
+            .then(object => this.setState({ objects: object[0] }))
     }
 
     deleteChirp(event) {

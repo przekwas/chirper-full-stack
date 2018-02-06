@@ -1,32 +1,40 @@
 import { Router } from 'express';
 import chirpStore from '../chirpsstore';
+import db from '../db';
 
 let router = Router();
 
 router.get('/:id?', (req, res) => {
     let id = req.params.id;
     if (id) {
-        res.send(chirpStore.GetChirp(id));
+        db.GetChirp(id).then(results => {
+            res.send(results);
+        })
     } else {
-        res.send(chirpStore.GetChirps());
+        db.GetChirps().then(results => {
+            res.send(results);
+        })
     }
 });
 
 router.post('/', (req, res) => {
-    chirpStore.CreateChirp(req.body);
-    res.sendStatus(200);
+    db.PostChirp(req.body.text).then(results => {
+        res.send(results);
+    })
 });
 
 router.put('/:id/edit', (req, res) => {
     let id = req.params.id;
-    chirpStore.UpdateChirp(id, req.body);
-    res.sendStatus(200);
+    db.EditChirp(id, req.body.text).then(results => {
+        res.send(results);
+    })
 });
 
 router.delete('/:id', (req, res) => {
     let id = req.params.id;
-    chirpStore.DeleteChirp(id);
-    res.sendStatus(200);
+    db.DeleteChirp(id).then(results => {
+        res.send(results);
+    })
 });
 
 export default router;

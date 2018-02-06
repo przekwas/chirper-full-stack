@@ -1,15 +1,9 @@
 {
-    "0": {
-        "text": "Lols"
+    "nextid": 0,
+    "01": {
+        "text": ""
     },
-    "1": {
-        "text": "Clean it up"
-    },
-    "2": {
-        "text": "Darude Sandstorm"
-    },
-    "3": {
-        "text": "DUDUDUDUDUDU"
-    },
-    "nextid": 5
+    "011": {
+        "text": ""
+    }
 }

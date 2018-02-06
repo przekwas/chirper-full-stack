@@ -24,7 +24,7 @@ class ChirpList extends Component {
 
                     if (object[id].text !== undefined) {
                         let text = object[id].text;
-                        return <Chirp key={id} id={id} text={text} name="Luke" />
+                        return <Chirp key={object[id].id} id={object[id].id} text={text} name="Luke" />
                     }
                 })
                 this.setState({ chirps: chirps })
